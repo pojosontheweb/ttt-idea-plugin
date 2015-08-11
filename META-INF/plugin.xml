@@ -1,0 +1,76 @@
+<idea-plugin version="2">
+    <id>com.pojosontheweb.ttt</id>
+    <name>ttt-idea</name>
+    <version>LATEST-SNAPSHOT</version>
+    <vendor email="remi@rvkb.com" url="http://www.pojosontheweb.com">POJOs on the Web</vendor>
+    <depends>com.intellij.modules.lang</depends>
+
+    <description><![CDATA[
+      A plugin for the <a href="https://github.com/pojosontheweb/ttt">Typed Text Templates framework</a>.
+      Provides
+      <ul>
+      <li>TTT paths (source and gen folders) can be configured from the modules settings page, via a new tab</li>
+      <li>Compile action for generating the Java sources from the templates</li>
+      <li>Detect .ttt file change and re-gen template Java sources transparently</li>
+      </ul>
+      No language support is bundled with the plugin. We recommend associating .ttt
+      files to JSP Editor for the best UX (completion etc).
+      <br/>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Initial version.
+    ]]>
+    </change-notes>
+
+    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+    <idea-version since-build="131"/>
+
+    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <!--<fileTypeFactory implementation="com.pojosontheweb.ttt.TttFileTypeFactory"/>-->
+        <!--<lang.parserDefinition language="Ttt" implementationClass="com.pojosontheweb.ttt.TttParserDefinition"/>-->
+        <!--<lang.syntaxHighlighterFactory key="Ttt"-->
+                                       <!--implementationClass="com.pojosontheweb.ttt.TttSyntaxHighlighterFactory"/>-->
+        <!--<colorSettingsPage implementation="com.pojosontheweb.ttt.TttColorSettingsPage"/>-->
+        <!--<lang.psiStructureViewFactory language="Ttt" implementationClass="com.pojosontheweb.ttt.TttStructureViewFactory"/>-->
+        <toolWindow id="TTT" icon="/com/pojosontheweb/ttt/jar-gray.png" anchor="bottom" factoryClass="com.pojosontheweb.ttt.TttToolWindow">
+        </toolWindow>
+    </extensions>
+
+    <application-components>
+        <!-- Add your application components here -->
+    </application-components>
+
+    <project-components>
+        <!-- Add your project components here -->
+        <component>
+            <implementation-class>com.pojosontheweb.ttt.TttProjectComponent</implementation-class>
+        </component>
+        <component>
+            <implementation-class>com.pojosontheweb.ttt.TttConsoleLogger</implementation-class>
+        </component>
+    </project-components>
+
+    <module-components>
+        <component>
+            <implementation-class>com.pojosontheweb.ttt.TttModuleComponent</implementation-class>
+        </component>
+    </module-components>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="com.pojosontheweb.ttt.TttCompileAction" class="com.pojosontheweb.ttt.TttCompileAction"
+                text="Ttt Compile" description="Compile TTT templates">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="shift meta T" second-keystroke="T"/>
+        </action>
+    </actions>
+
+</idea-plugin>

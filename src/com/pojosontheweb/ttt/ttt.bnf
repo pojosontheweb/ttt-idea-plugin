@@ -1,0 +1,33 @@
+{
+  parserClass="com.pojosontheweb.ttt.parser.TttParser"
+ 
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+ 
+  psiClassPrefix="Ttt"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.pojosontheweb.ttt.psi"
+  psiImplPackage="com.pojosontheweb.ttt.psi.impl"
+  psiImplUtilClass="com.pojosontheweb.ttt.psi.impl.TttPsiImplUtil"
+ 
+  elementTypeHolderClass="com.pojosontheweb.ttt.psi.TttTypes"
+  elementTypeClass="com.pojosontheweb.ttt.psi.TttElementType"
+  tokenTypeClass="com.pojosontheweb.ttt.psi.TttTokenType"
+}
+
+template ::= signature part*
+
+signature ::= SIG_START args SIG_END
+args ::= arg (ARG_SEP arg)*
+arg ::= argType argName
+argType ::= (TYPE | ID)
+argName ::= ID
+
+expression ::= EXPR_START exprBody EXPR_END
+exprBody ::= CHAR*
+
+script ::= SCRIPT_START scriptBody SCRIPT_END
+scriptBody ::= CHAR*
+
+templateTxt ::= CHAR*
+
+part ::= expression | script | templateTxt
