@@ -4,7 +4,7 @@ The [ttt-idea](https://plugins.jetbrains.com/plugin/7880?pr=idea) plugin current
 * compile action
 * auto-compile TTT templates on save
 
-![shot](shots/ttt-main.png "TTT plugin")
+![shot](shots/main.png "TTT plugin")
 
 ## How To
 
@@ -12,7 +12,7 @@ First install the plugin from the JetBrains repo.
 
 Then, configure the plugin for the module paths in the `Module Settings` page, under the `Ttt` tab :
 
-![shot 1](shots/ttt-tab.png "TTT tab")
+![shot 1](shots/module-settings.png "TTT tab")
 
 > You need to create a "generated sources" folder for the generated Java code. You can create 
 > it anywhere you want, but it has to be present and marked as "generated sources folder"
@@ -20,7 +20,7 @@ Then, configure the plugin for the module paths in the `Module Settings` page, u
 
 Now, associate the `.ttt` files to the JSP editor :
 
-![shot 2](shots/ttt-file-type.png "TTT file type")
+![shot 2](shots/file-type.png "TTT file type")
 
 You're done. You can explicitly invoke the "Tools -> TTT Compile" action, or just compile
 on save.
