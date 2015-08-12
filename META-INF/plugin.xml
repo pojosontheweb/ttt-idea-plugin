@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>com.pojosontheweb.ttt</id>
     <name>ttt-idea</name>
-    <version>0.1-beta4</version>
+    <version>LATEST-SNAPSHOT</version>
     <vendor email="remi@rvkb.com" url="http://www.pojosontheweb.com">POJOs on the Web</vendor>
     <depends>com.intellij.modules.lang</depends>
 
